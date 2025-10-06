@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Sewa - BaliRent</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><span>BaliRent</span></div>
+    <div class="menu">
+      <a href="index.html">Beranda</a>
+      <a href="kendaraan.html">Kendaraan</a>
+      <a href="tentang.html">Tentang</a>
+      <a href="kontak.html">Kontak</a>
+    </div>
+  </nav>
+
+  <section class="form-section" id="formSection">
+    <h2>Formulir Penyewaan Kendaraan</h2>
+    <p>Silakan isi data di bawah ini untuk melanjutkan pemesanan Anda.</p>
+
+    <form id="rentalForm" class="rental-form">
+      <input type="text" id="nama" placeholder="Nama Lengkap" required>
+      <input type="tel" id="telepon" placeholder="Nomor Telepon" required>
+      <input type="text" id="kendaraan" placeholder="Jenis Kendaraan" readonly>
+
+      <label for="tanggalSewa">Tanggal Sewa:</label>
+      <input type="date" id="tanggalSewa" required>
+
+      <label for="tanggalKembali">Tanggal Kembali:</label>
+      <input type="date" id="tanggalKembali" required>
+
+      <select id="metodeBayar" required>
+        <option value="">Pilih Metode Pembayaran</option>
+        <option value="transfer">Transfer Bank</option>
+        <option value="cod">Bayar di Tempat</option>
+        <option value="ewallet">E-Wallet</option>
+      </select>
+
+      <button type="submit" class="btn">Kirim Pesanan</button>
+    </form>
+  </section>
+
+  <!-- Konfirmasi setelah submit -->
+  <section class="confirmation-section" id="confirmationSection" style="display:none;">
+    <h2>Pemesanan Berhasil!</h2>
+    <p>Terima kasih telah memesan kendaraan di <strong>BaliRent</strong>.</p>
+    <p>Berikut adalah <strong>Kode Pemesanan Anda</strong>:</p>
+
+    <div class="booking-code">
+      <span id="kodeUnik">BR-000000</span>
+      <button class="btn" id="copyBtn">Salin</button>
+    </div>
+
+    <p>Gunakan kode ini sebagai bukti pembayaran Anda.</p>
+    <a href="index.html" class="btn">Kembali ke Beranda</a>
+  </section>
+
+  <footer>
+    <p>© 2025 BaliRent. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Ambil nama kendaraan dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const vehicle = urlParams.get('vehicle');
+    if (vehicle) {
+      document.getElementById('kendaraan').value = vehicle;
+    }
+
+    // Fungsi buat kode unik
+    function generateKodeUnik() {
+      const date = new Date();
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const random = Math.random().toString(36).substring(2, 7).toUpperCase();
+      return `BR-${year}${month}${day}-${random}`;
+    }
+
+    // Handle form submit
+    document.getElementById('rentalForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const kode = generateKodeUnik();
+      document.getElementById('kodeUnik').textContent = kode;
+
+      // sembunyikan form, tampilkan konfirmasi
+      document.getElementById('formSection').style.display = 'none';
+      document.getElementById('confirmationSection').style.display = 'block';
+    });
+
+    // Tombol salin kode
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const kode = document.getElementById('kodeUnik').textContent;
+      navigator.clipboard.writeText(kode);
+      alert("Kode pemesanan berhasil disalin: " + kode);
+    });
+  </script>
+</body>
+</html>

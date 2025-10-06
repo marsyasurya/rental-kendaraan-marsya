@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daftar Kendaraan - BaliRent</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🚗 <span>BaliRent</span></div>
+    <div class="menu">
+      <a href="index.html">Beranda</a>
+      <a href="kendaraan.html" class="active">Kendaraan</a>
+      <a href="tentang.html">Tentang</a>
+      <a href="kontak.html">Kontak</a>
+    </div>
+  </nav>
+
+  <section class="vehicle-section">
+    <h2>Daftar Kendaraan</h2>
+
+    <div class="filter-bar">
+      <input type="text" id="searchInput" placeholder="Cari kendaraan (contoh: nmax, avanza)..." />
+      <select id="filterSelect">
+        <option value="all">Semua Jenis</option>
+        <option value="mobil">Mobil</option>
+        <option value="motor">Motor</option>
+      </select>
+    </div>
+
+    <div id="vehicleList" class="vehicle-list">
+      <!-- gunakan atribut data- untuk pencarian/modal -->
+      <div class="vehicle-card" data-type="mobil" data-name="Toyota Avanza" data-price="350000" data-desc="Mobil keluarga nyaman untuk perjalanan jauh.">
+        <img src="assets/toyotaavanza.jpeg" alt="Toyota Avanza" />
+        <h3>Toyota Avanza</h3>
+        <a href="sewa.html?vehicle=Toyota Avanza" class="btn">Sewa Sekarang</a>
+      </div>
+
+      <div class="vehicle-card" data-type="mobil" data-name="Honda Brio" data-price="300000" data-desc="Compact, irit, cocok untuk kota.">
+        <img src="assets/hondabrio.jpeg" alt="Honda Brio" />
+        <h3>Honda Brio</h3>
+        <a href="sewa.html?vehicle=Honda Brio" class="btn">Sewa Sekarang</a>
+      </div>
+
+      <div class="vehicle-card" data-type="mobil" data-name="Suzuki Ertiga" data-price="400000" data-desc="Mobil keluarga dengan kapasitas besar.">
+        <img src="assets/suzukiertiga.jpeg" alt="Suzuki Ertiga" />
+        <h3>Suzuki Ertiga</h3>
+        <a href="sewa.html?vehicle=Suzuki Ertiga" class="btn">Sewa Sekarang</a>
+      </div>
+
+      <div class="vehicle-card" data-type="motor" data-name="Yamaha NMAX" data-price="120000" data-desc="Motor matic besar dengan kenyamanan maksimal.">
+        <img src="assets/yamahanmax.jpeg" alt="Yamaha NMAX" />
+        <h3>Yamaha NMAX</h3>
+        <a href="sewa.html?vehicle=Yamaha Nmax" class="btn">Sewa Sekarang</a>
+      </div>
+
+      <div class="vehicle-card" data-type="motor" data-name="Vespa Sprint" data-price="150000" data-desc="Motor retro bergaya elegan cocok untuk jalan santai.">
+        <img src="assets/vespasprint.jpeg" alt="Vespa Sprint" />
+        <h3>Vespa Sprint</h3>
+        <a href="sewa.html?vehicle=Vespa Sprint" class="btn">Sewa Sekarang</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 BaliRent. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

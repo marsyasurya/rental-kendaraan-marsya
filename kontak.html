@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontak - BaliRent</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🚗 <span>BaliRent</span></div>
+    <div class="menu">
+      <a href="index.html">Beranda</a>
+      <a href="kendaraan.html">Kendaraan</a>
+      <a href="tentang.html">Tentang</a>
+      <a href="kontak.html" class="active">Kontak</a>
+    </div>
+  </nav>
+
+  <section class="contact-section">
+    <h2>Hubungi Kami</h2>
+    <p>Butuh bantuan? Isi formulir ini atau hubungi kami langsung.</p>
+
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Terima kasih! Pesan Anda telah dikirim (demo).');">
+      <input type="text" placeholder="Nama Lengkap" required />
+      <input type="email" placeholder="Email" required />
+      <textarea rows="5" placeholder="Pesan Anda..." required></textarea>
+      <button class="btn" type="submit">Kirim Pesan</button>
+    </form>
+
+    <div class="contact-info">
+      <p>📍 Jl. Raya Zigzag No. 45, Bali</p>
+      <p>📞 +62 812-3456-7890</p>
+      <p>✉️ rentalmobilbali@gmail.com</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 BaliRent. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
